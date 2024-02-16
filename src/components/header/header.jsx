@@ -71,7 +71,7 @@ export default function Header() {
                           Sign in
                         </h3>
                         <p className="text-sm text-muted-foreground">
-                          Don't have an account?{" "}
+                          Don&#39;t have an account?{" "}
                           <Link href="/register" className="text-blue-500">
                             Sign up
                           </Link>

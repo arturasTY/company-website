@@ -15,7 +15,7 @@ export default function Faq() {
       <div className="grid grid-cols-1 md:grid-cols-2">
         <Accordion type="single" collapsible className="w-full md:col-start-2">
           {faqs.map((faq) => (
-            <AccordionItem value={faq.id}>
+            <AccordionItem value={faq.id} key={faq.id}>
               <AccordionTrigger className="text-2xl md:text-4xl">
                 {faq.question}
               </AccordionTrigger>

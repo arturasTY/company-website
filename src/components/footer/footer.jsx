@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="border-b dark:border-zinc-800 border-zinc-200 py-10">
           <div className="md:max-w-7xl mx-auto w-full max-w-5xl px-4">
             <p className="sm:text-lg mb-2 text-zinc-500 uppercase">
-              Let's talk
+              Let&#39;s talk
             </p>
             <div className="flex items-center group">
               <a
