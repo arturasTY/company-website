@@ -5,12 +5,15 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { pricingPlans } from "@/lib/data";
+import { calcDiscount } from "@/lib/utils";
 import { useMotionValue, motion, useMotionTemplate } from "framer-motion";
-import { Check, ChevronRight, Sparkles, Tag } from "lucide-react";
+import { Check, ChevronRight, Tag } from "lucide-react";
+import { useState } from "react";
 
 export default function Pricing() {
   let mouseX = useMotionValue(0);
   let mouseY = useMotionValue(0);
+  const [annual, setAnnual] = useState(false);
 
   const handleMouseMove = ({ clientX, clientY, currentTarget }) => {
     const { top, left } = currentTarget.getBoundingClientRect();
@@ -18,11 +21,15 @@ export default function Pricing() {
     mouseX.set(clientX - left);
     mouseY.set(clientY - top);
   };
+
+  const handleLength = () => {
+    setAnnual(!annual);
+  };
   return (
     <section className="py-12">
       <SectionIntro text="Pricing" />
       <div>
-        <div className="flex gap-8 flex-col md:flex-row justify-between md:items-end my-24">
+        <div className="flex gap-8 flex-col md:flex-row justify-between md:items-end mt-24 mb-8 md:mb-24">
           <div className="max-w-xl space-y-8">
             <h1 className="text-5xl sm:text-6xl font-bold">
               The perfect <span className="text-hero-purple">plan</span> for
@@ -33,10 +40,10 @@ export default function Pricing() {
               within&nbsp;your financial constraints.
             </p>
           </div>
-          <div>
+          <div className="mt-10 md:mt-0">
             <div className="flex items-center md:justify-end space-x-2 mb-4">
               <Label htmlFor="airplane-mode">Monthly</Label>
-              <Switch id="airplane-mode" />
+              <Switch id="airplane-mode" onClick={handleLength} />
               <Label htmlFor="airplane-mode">Annually</Label>
             </div>
             <p className="dark:text-zinc-500 text-sm flex items-center">
@@ -74,10 +81,23 @@ export default function Pricing() {
                 <p className="dark:text-zinc-500">{plan.plan_intro}</p>
                 <div className="mt-10 flex items-center">
                   <p className="text-[2.5rem] leading-none">
-                    &pound;<span className="font-bold">{plan.price}</span>
+                    &pound;
+                    {annual ? (
+                      <span className="font-bold">
+                        {plan.price * 12 - calcDiscount(plan.price)}
+                      </span>
+                    ) : (
+                      <span className="font-bold">{plan.price}</span>
+                    )}
                   </p>
                   <p className="text-sm mt-1 ml-3">
-                    <span className="dark:text-zinc-500">per user / month</span>
+                    {annual ? (
+                      <span className="dark:text-zinc-500">per year</span>
+                    ) : (
+                      <span className="dark:text-zinc-500">
+                        per user / month
+                      </span>
+                    )}
                   </p>
                 </div>
               </div>

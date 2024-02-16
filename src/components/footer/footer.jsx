@@ -98,7 +98,8 @@ export default function Footer() {
               &copy; Solution {new Date().getFullYear()}
               <div>
                 <span>
-                  Developed by <a href="/">Arturas Ty</a>
+                  Developed by{" "}
+                  <a href="mailto:a.tyvoniak@gmail.com">Arturas Ty</a>
                 </span>
               </div>
             </div>

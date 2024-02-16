@@ -14,11 +14,11 @@ export default function Newsletter() {
           <h1 className="text-4xl sm:text-5xl font-bold">Stay Informed</h1>
           <p className="dark:text-zinc-400 max-w-md mx-auto my-6">
             Get quarterly notifications regarding significant new features,
-            events and releases.
+            events and&nbsp;releases.
           </p>
         </div>
         <form action="" className="max-w-md mx-auto">
-          <div className="md:flex space-x-4">
+          <div className="md:flex space-y-6 md:space-y-0 md:space-x-6">
             <Input type="email" placeholder="Email" />
             <Button className="w-full md:w-auto">
               <Send strokeWidth={1} className="w-4 h-4 mr-1" />
