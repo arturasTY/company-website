@@ -14,7 +14,7 @@ I'm thrilled to share that I've recently designed and developed this company web
 
 ![des4](https://github.com/arturasTY/company-website/assets/30295076/a6b1ae45-5fca-4370-8058-90e0d59692ef)
 
-## 🔗 [Live Demo](https://xxxxx/)
+## 🔗 [Live Demo](https://company-website-shadcn.vercel.app/)
 
 ## ✅ Features:
 
